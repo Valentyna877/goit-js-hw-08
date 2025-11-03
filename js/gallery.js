@@ -109,6 +109,15 @@ galleryContainer.addEventListener("click", event => {
 
         image.addEventListener("click", () => instance.close());
         caption.addEventListener("click", () => instance.close());
+
+        const onEscKey = (event) => {
+          if (event.key === "Escape") {
+            instance.close();
+            window.removeEventListener("keydown", onEscKey);
+          }
+        };
+
+        window.addEventListener("keydown", onEscKey);
       }
     }
   );
